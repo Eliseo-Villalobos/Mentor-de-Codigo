@@ -56,9 +56,12 @@ def preguntar_al_tutor(historial):
     payload = {
         "model": MODEL,
         "messages": historial,
-        "stream": False  # False = esperamos la respuesta completa de una vez
+        "stream": False,  # False = esperamos la respuesta completa de una vez
                           # (más adelante, en Streamlit, se puede usar True
                           # para que el texto aparezca palabra por palabra)
+        "options": {
+                    "num_ctx": 4096 #Aumentamos los tokens para que no se quiebre y olvide las reglas socraticas
+                }
     }
 
     respuesta = requests.post(OLLAMA_URL, json=payload)
