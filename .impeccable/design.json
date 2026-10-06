@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T00:00:00Z",
+  "title": "Design System: Mentor de Código",
+  "extensions": {
+    "colorMeta": {
+      "tinta": { "role": "primary", "displayName": "Tinta", "canonical": "#0d0d0d", "tonalRamp": ["#0d0d0d", "#262626", "#3d3d3d", "#5d5d5d", "#8a8a8a", "#b4b4b4", "#dcdcdc", "#f4f4f4"] },
+      "tinta-suave": { "role": "neutral", "displayName": "Tinta suave", "canonical": "#5d5d5d", "tonalRamp": ["#1f1f1f", "#333333", "#474747", "#5d5d5d", "#7a7a7a", "#9e9e9e", "#c4c4c4", "#ececec"] },
+      "lienzo": { "role": "neutral", "displayName": "Lienzo", "canonical": "#ffffff", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#949494", "#bdbdbd", "#e0e0e0", "#f4f4f4", "#ffffff"] },
+      "burbuja": { "role": "neutral", "displayName": "Gris burbuja", "canonical": "#f4f4f4", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#949494", "#bdbdbd", "#e0e0e0", "#f4f4f4", "#fafafa"] },
+      "lateral": { "role": "neutral", "displayName": "Gris lateral", "canonical": "#f9f9f9", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#949494", "#bdbdbd", "#e5e5e5", "#f4f4f4", "#f9f9f9"] },
+      "hover": { "role": "neutral", "displayName": "Gris hover", "canonical": "#ececec", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#949494", "#bdbdbd", "#d7d7d7", "#ececec", "#f9f9f9"] },
+      "borde": { "role": "neutral", "displayName": "Borde", "canonical": "#e5e5e5", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#949494", "#c9c9c9", "#e5e5e5", "#f4f4f4", "#fafafa"] },
+      "borde-foco": { "role": "neutral", "displayName": "Borde de foco", "canonical": "#c9c9c9", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#949494", "#c9c9c9", "#e5e5e5", "#f4f4f4", "#fafafa"] },
+      "codigo-fondo": { "role": "neutral", "displayName": "Fondo de código", "canonical": "#f6f6f6", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#949494", "#bdbdbd", "#e0e0e0", "#f6f6f6", "#fbfbfb"] },
+      "envio-hover": { "role": "neutral", "displayName": "Tinta hover", "canonical": "#333333", "tonalRamp": ["#0d0d0d", "#1f1f1f", "#333333", "#5d5d5d", "#8a8a8a", "#b4b4b4", "#dcdcdc", "#f4f4f4"] },
+      "envio-deshabilitado": { "role": "neutral", "displayName": "Gris deshabilitado", "canonical": "#d7d7d7", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#949494", "#bdbdbd", "#d7d7d7", "#ececec", "#f9f9f9"] },
+      "aviso": { "role": "semantic", "displayName": "Ámbar aviso", "canonical": "#8a4b00", "tonalRamp": ["#3d2100", "#5c3200", "#8a4b00", "#b46200", "#d97706", "#f5a54a", "#fed7aa", "#fff7ed"] },
+      "aviso-fondo": { "role": "semantic", "displayName": "Ámbar fondo", "canonical": "#fff7ed", "tonalRamp": ["#3d2100", "#5c3200", "#8a4b00", "#b46200", "#d97706", "#f5a54a", "#fed7aa", "#fff7ed"] },
+      "aviso-borde": { "role": "semantic", "displayName": "Ámbar borde", "canonical": "#fed7aa", "tonalRamp": ["#3d2100", "#5c3200", "#8a4b00", "#b46200", "#d97706", "#f5a54a", "#fed7aa", "#fff7ed"] },
+      "aviso-punto": { "role": "semantic", "displayName": "Ámbar de estado", "canonical": "#d97706", "tonalRamp": ["#3d2100", "#5c3200", "#8a4b00", "#b46200", "#d97706", "#f5a54a", "#fed7aa", "#fff7ed"] },
+      "ok": { "role": "semantic", "displayName": "Verde listo", "canonical": "#10a37f", "tonalRamp": ["#04291f", "#074233", "#0b6b53", "#10a37f", "#3fc29f", "#7dd9bf", "#bcecdd", "#e9f8f3"] },
+      "seleccion": { "role": "neutral", "displayName": "Azul selección", "canonical": "#cfe3ff", "tonalRamp": ["#0a2a57", "#12407f", "#1d5bb0", "#3b7ddb", "#76a6ec", "#a9c8f6", "#cfe3ff", "#eef5ff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Solo el saludo de la pantalla inicial; 1.6rem en ≤640px." },
+      "title": { "displayName": "Title", "purpose": "Nombre de la marca en la barra lateral." },
+      "body": { "displayName": "Body", "purpose": "Mensajes del chat y texto del compositor." },
+      "body-sm": { "displayName": "Body small", "purpose": "Pasos de Cómo funciona, texto y pasos de la tarjeta de error, línea pensando." },
+      "label": { "displayName": "Label", "purpose": "Títulos de sección de la barra lateral y números de paso; caja de oración." },
+      "caption": { "displayName": "Caption", "purpose": "Consejo de teclado, aviso al pie, estado del modelo, nota de espera." },
+      "code": { "displayName": "Code", "purpose": "Bloques de código e inline code (codeFont de Streamlit)." }
+    },
+    "shadows": [
+      { "name": "pildora-flotante", "value": "0 2px 10px rgba(13, 13, 13, 0.06), 0 1px 2px rgba(13, 13, 13, 0.04)", "purpose": "Única sombra del sistema: la caja de texto en píldora." }
+    ],
+    "motion": [
+      { "name": "hover-lateral", "value": "background-color 120ms ease-out", "purpose": "Hover de botones de la barra lateral." },
+      { "name": "latido-puntos", "value": "latido 1.2s ease-in-out infinite; delays 0s / 0.15s / 0.3s", "purpose": "Puntos de El Mentor está pensando (opacidad 0.25 a 1)." },
+      { "name": "latido-cursor", "value": "latido 1s ease-in-out infinite", "purpose": "Cursor circular mientras llega la respuesta." },
+      { "name": "aparecer-nota", "value": "aparecer 400ms ease-out 5s forwards", "purpose": "La nota de espera aparece tras 5 s. Todo se detiene con prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "movil", "value": "640px" }
+    ],
+    "platform": {
+      "stack": "Streamlit 1.65, solo modo claro (base = light)",
+      "tokenSources": [".streamlit/config.toml [theme] y [theme.sidebar]", "ui.py ESTILOS :root custom properties"],
+      "constraints": [
+        "Seleccionar elementos de Streamlit por data-testid (stChatMessage, stChatInput, stSidebar, stBottom, stCode...), nunca por clases st-emotion-cache-*.",
+        "La tarjeta de error es st.container(key=\"tarjeta_error\"); su gancho CSS es la clase .st-key-tarjeta_error.",
+        "El aviso al pie se coloca con st.bottom; el compositor de la pantalla inicial va dentro de st.container() para no fijarse al pie.",
+        "La marca se sube con margin-top negativo (-3.1rem) para alinearla con el botón nativo de cerrar la barra; depende del layout de Streamlit."
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Compositor en píldora",
+      "kind": "input",
+      "refersTo": "compositor",
+      "description": "Caja de texto del chat con botón de enviar circular; la única superficie con sombra.",
+      "html": "<div class=\"ds-compositor\"><input class=\"ds-compositor-campo\" placeholder=\"Escribe tu duda o pega tu código…\"><button class=\"ds-enviar\" aria-label=\"Enviar\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 19V5\"/><path d=\"m5 12 7-7 7 7\"/></svg></button></div>",
+      "css": ".ds-compositor { display: flex; align-items: center; gap: 0.5rem; max-width: 40rem; border-radius: 1.75rem; border: 1px solid #e5e5e5; background: #fff; box-shadow: 0 2px 10px rgba(13,13,13,0.06), 0 1px 2px rgba(13,13,13,0.04); padding: 0.35rem 0.4rem 0.35rem 0.9rem; font-family: 'Segoe UI', system-ui, sans-serif; } .ds-compositor:focus-within { border-color: #c9c9c9; } .ds-compositor-campo { flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-size: 1rem; line-height: 1.5; color: #0d0d0d; caret-color: #0d0d0d; } .ds-compositor-campo::placeholder { color: #5d5d5d; } .ds-enviar { width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 0; background: #0d0d0d; color: #fff; display: grid; place-items: center; cursor: pointer; } .ds-enviar:hover { background: #333; } .ds-enviar:focus-visible { outline: 2px solid #0d0d0d; outline-offset: 2px; } .ds-enviar:disabled { background: #d7d7d7; cursor: default; }"
+    },
+    {
+      "name": "Botón lateral",
+      "kind": "button",
+      "refersTo": "boton-lateral",
+      "description": "Botón fantasma de la barra lateral (Nueva conversación).",
+      "html": "<div class=\"ds-lateral\"><button class=\"ds-btn-lateral\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z\"/></svg>Nueva conversación</button></div>",
+      "css": ".ds-lateral { background: #f9f9f9; padding: 1rem; width: 16rem; } .ds-btn-lateral { display: flex; align-items: center; gap: 0.5rem; width: 100%; justify-content: flex-start; background: transparent; border: 1px solid transparent; border-radius: 0.6rem; color: #0d0d0d; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 0.95rem; font-weight: 500; padding: 0.45rem 0.6rem; cursor: pointer; transition: background-color 120ms ease-out; } .ds-btn-lateral:hover { background: #ececec; } .ds-btn-lateral:focus-visible { outline: 2px solid #0d0d0d; outline-offset: 1px; } .ds-btn-lateral:disabled { color: #5d5d5d; background: transparent; cursor: default; }"
+    },
+    {
+      "name": "Burbuja del alumno",
+      "kind": "card",
+      "refersTo": "burbuja-alumno",
+      "description": "Mensaje del alumno: burbuja gris a la derecha, sin avatar.",
+      "html": "<div class=\"ds-fila-alumno\"><div class=\"ds-burbuja\">por qué mi ciclo no llega a 10?</div></div>",
+      "css": ".ds-fila-alumno { display: flex; justify-content: flex-end; max-width: 48rem; } .ds-burbuja { max-width: min(36rem, 85%); background: #f4f4f4; color: #0d0d0d; border-radius: 1.5rem; padding: 0.65rem 1.15rem; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 1rem; line-height: 1.7; }"
+    },
+    {
+      "name": "Mensaje del Mentor",
+      "kind": "custom",
+      "refersTo": "avatar-mentor",
+      "description": "El Mentor habla sin burbuja, con avatar de brújula en círculo de borde fino.",
+      "html": "<div class=\"ds-mentor\"><span class=\"ds-avatar\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m15.5 8.5-2 5-5 2 2-5z\"/></svg></span><p class=\"ds-mentor-texto\">En tu ciclo <code>for</code>, la parte que actualiza el valor de <code>i</code> es <code>i--</code>. ¿Qué hace esto?</p></div>",
+      "css": ".ds-mentor { display: flex; gap: 0.85rem; max-width: 48rem; font-family: 'Segoe UI', system-ui, sans-serif; } .ds-avatar { flex: none; width: 2rem; height: 2rem; border-radius: 50%; background: #fff; border: 1px solid #e5e5e5; color: #0d0d0d; display: grid; place-items: center; } .ds-mentor-texto { margin: 0.2rem 0 0; font-size: 1rem; line-height: 1.7; color: #0d0d0d; } .ds-mentor-texto code { font-family: 'Cascadia Code', Consolas, monospace; font-size: 0.875rem; background: #f6f6f6; border-radius: 0.35rem; padding: 0.05rem 0.3rem; }"
+    },
+    {
+      "name": "Tarjeta de error amable",
+      "kind": "card",
+      "refersTo": "tarjeta-error",
+      "description": "Todo error se muestra así: título, por qué pasó y pasos numerados con comandos copiables.",
+      "html": "<div class=\"ds-error\" role=\"alert\"><div class=\"ds-error-titulo\">Falta descargar el modelo llama3.2</div><div class=\"ds-error-texto\">Ollama está funcionando, pero todavía no tiene el modelo que usa el Mentor.</div><div class=\"ds-error-paso\"><span class=\"ds-error-num\">1.</span><span>En PowerShell corre esto (descarga ~2 GB, solo una vez):</span></div><pre class=\"ds-error-cmd\">ollama pull llama3.2</pre><div class=\"ds-error-paso\"><span class=\"ds-error-num\">2.</span><span>Cuando termine, vuelve a intentarlo.</span></div></div>",
+      "css": ".ds-error { display: flex; flex-direction: column; gap: 0.5rem; max-width: 40rem; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 1rem; padding: 1rem 1.15rem; color: #0d0d0d; font-family: 'Segoe UI', system-ui, sans-serif; } .ds-error-titulo { font-size: 1rem; font-weight: 600; color: #8a4b00; } .ds-error-texto { font-size: 0.95rem; line-height: 1.55; } .ds-error-paso { display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.4rem; font-size: 0.95rem; line-height: 1.55; } .ds-error-num { font-weight: 600; color: #8a4b00; } .ds-error-cmd { margin: 0; background: #fff; border: 1px solid #fed7aa; border-radius: 0.75rem; padding: 0.9rem 1rem; font-family: 'Cascadia Code', Consolas, monospace; font-size: 0.875rem; }"
+    },
+    {
+      "name": "Indicador pensando",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Movimiento firma: puntos que laten y, tras 5 s, una nota que explica la espera.",
+      "html": "<div class=\"ds-pensando\" role=\"status\"><span class=\"ds-pensando-linea\"><span class=\"ds-puntos\"><i></i><i></i><i></i></span>El Mentor está pensando…</span><span class=\"ds-pensando-nota\">La primera respuesta tarda unos segundos mientras se carga el modelo.</span></div>",
+      "css": ".ds-pensando { display: flex; flex-direction: column; gap: 0.3rem; font-family: 'Segoe UI', system-ui, sans-serif; } .ds-pensando-linea { display: flex; align-items: center; gap: 0.6rem; color: #5d5d5d; font-size: 0.95rem; } .ds-puntos { display: inline-flex; gap: 0.25rem; } .ds-puntos i { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: #5d5d5d; animation: ds-latido 1.2s ease-in-out infinite; } .ds-puntos i:nth-child(2) { animation-delay: 0.15s; } .ds-puntos i:nth-child(3) { animation-delay: 0.3s; } .ds-pensando-nota { font-size: 0.85rem; color: #5d5d5d; opacity: 0; animation: ds-aparecer 400ms ease-out 5s forwards; } @keyframes ds-latido { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } } @keyframes ds-aparecer { to { opacity: 1; } } @media (prefers-reduced-motion: reduce) { .ds-puntos i, .ds-pensando-nota { animation: none; opacity: 1; } }"
+    },
+    {
+      "name": "Barra lateral",
+      "kind": "nav",
+      "refersTo": "marca-icono",
+      "description": "Marca, Cómo funciona con contadores circulares, y punto de estado del modelo.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-marca\"><span class=\"ds-marca-icono\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m15.5 8.5-2 5-5 2 2-5z\"/></svg></span><span class=\"ds-marca-nombre\">Mentor de Código</span></div><div class=\"ds-nav-titulo\">Cómo funciona</div><ol class=\"ds-pasos\"><li>Pega tu código o cuéntame tu duda.</li><li>Te respondo con preguntas y pistas, nunca con la solución.</li></ol><div class=\"ds-estado\"><span class=\"ds-estado-punto\"></span><span><b>Listo</b>Ollama · local · llama3.2</span></div></nav>",
+      "css": ".ds-nav { width: 16rem; background: #f9f9f9; border-right: 1px solid #e5e5e5; padding: 1rem 0.6rem; font-family: 'Segoe UI', system-ui, sans-serif; color: #0d0d0d; } .ds-marca { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 1rem 0.6rem; } .ds-marca-icono { width: 2rem; height: 2rem; border-radius: 50%; background: #0d0d0d; color: #fff; display: grid; place-items: center; } .ds-marca-nombre { font-weight: 600; font-size: 1.05rem; } .ds-nav-titulo { font-size: 0.8rem; font-weight: 600; color: #5d5d5d; margin: 1.25rem 0 0.5rem 0.6rem; } .ds-pasos { list-style: none; margin: 0; padding: 0 0.6rem; counter-reset: paso; } .ds-pasos li { counter-increment: paso; display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.4rem; font-size: 0.9rem; line-height: 1.45; margin: 0 0 0.65rem; } .ds-pasos li::before { content: counter(paso); width: 1.4rem; height: 1.4rem; border-radius: 50%; background: #ececec; font-size: 0.75rem; font-weight: 600; display: grid; place-items: center; } .ds-estado { display: flex; gap: 0.55rem; margin: 1.5rem 0.6rem 0; padding-top: 1rem; border-top: 1px solid #e5e5e5; font-size: 0.85rem; line-height: 1.4; color: #5d5d5d; } .ds-estado b { display: block; color: #0d0d0d; font-weight: 600; } .ds-estado-punto { flex: none; width: 0.55rem; height: 0.55rem; margin-top: 0.4rem; border-radius: 50%; background: #10a37f; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La conversación conocida",
+    "overview": "El Mentor viste el canon de ChatGPT, elegido por el usuario y ejecutado sin ironía: lienzo blanco puro, tinta casi negra, una sola columna de lectura y una caja de texto en píldora. El alumno no tiene que aprender una interfaz; ya la conoce. Toda la novedad está en lo que el Mentor responde (preguntas, nunca soluciones), así que la piel se mantiene en silencio: grises neutros, sin color de marca, sin decoración.\n\nLa densidad es baja y la lectura manda. El Mentor habla sin burbuja, al ras de la columna, con un avatar de brújula en círculo de borde fino; el alumno habla en una burbuja gris a la derecha. El único color cálido del sistema es el ámbar de los avisos: aparece solo cuando algo falla y siempre trae pasos concretos para arreglarlo. El único movimiento propio es la espera: puntos que laten y, tras 5 s, una nota que explica por qué tarda el modelo.\n\nConstruido sobre Streamlit 1.65 en modo claro únicamente (`base = \"light\"`). Los tokens base viven en `.streamlit/config.toml`; lo que Streamlit no deja configurar vive como variables CSS en la cadena `ESTILOS` de `ui.py`. Las dos apps (`app.py`, `appGemini.py`) comparten esta misma interfaz.",
+    "keyCharacteristics": [
+      "Monocromo neutro: tinta #0d0d0d sobre blanco; el gris hace todo el trabajo de jerarquía.",
+      "Una columna de 48rem; barra lateral gris claro a la izquierda.",
+      "Formas suaves y redondas: píldora, burbuja, círculos; nada de esquinas duras.",
+      "Ámbar reservado para errores amables; verde solo para el punto de \"Listo\".",
+      "Casi sin sombra: solo la píldora del compositor flota."
+    ],
+    "rules": [
+      { "name": "The Sin Acento Rule", "body": "No hay color de marca. Las acciones primarias son tinta sobre blanco o blanco sobre tinta; si un nuevo elemento \"necesita color\" para destacar, la respuesta es peso, tamaño o posición.", "section": "colors" },
+      { "name": "The Ámbar Solo Avisa Rule", "body": "El ámbar aparece únicamente cuando algo falla y viene con instrucciones. Nunca se usa para resaltar, decorar ni marcar contenido normal.", "section": "colors" },
+      { "name": "The Una Familia Rule", "body": "Una sola pila sans en todo el sistema; la jerarquía sale de peso (400/500/600) y tamaño, nunca de una segunda familia ni de mayúsculas sostenidas.", "section": "typography" },
+      { "name": "The Una Sola Sombra Rule", "body": "Solo el compositor tiene sombra. Tarjetas, burbujas, avatares y la barra lateral se separan por tono o por borde de 1px.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do poner los colores, fuentes y radios base en `.streamlit/config.toml` y solo lo que Streamlit no expone en las variables de `ESTILOS`.",
+      "Do usar tinta #0d0d0d sobre blanco para toda acción primaria; los estados son grises (hover #ececec, deshabilitado #d7d7d7).",
+      "Do escribir cada error como tarjeta de error amable: título, por qué pasó y pasos numerados, con los comandos copiables.",
+      "Do mantener redondos los objetos pequeños (avatar, botones de icono, contadores, puntos) y la escala de radios de 0.35rem a 1.75rem.",
+      "Do respetar `prefers-reduced-motion` en cualquier animación nueva.",
+      "Do apuntar a los elementos de Streamlit por `data-testid` o por la clase `st-key-<key>` de un contenedor con key, nunca por clases generadas (`st-emotion-cache-*`)."
+    ],
+    "donts": [
+      "Don't introducir un color de marca o acento cromático en botones, enlaces o encabezados.",
+      "Don't usar ámbar fuera de errores y del punto de estado con problema.",
+      "Don't mostrar trazas de Python al alumno; el detalle técnico va escondido en el expander para el equipo.",
+      "Don't agregar sombras a tarjetas, burbujas o la barra lateral; la píldora es la única que flota.",
+      "Don't volver al Streamlit por defecto: título grande en la página, avatares de colores, caja de texto plana.",
+      "Don't agregar modo oscuro sin definir su paleta completa; el sistema es solo `base = \"light\"`."
+    ]
+  }
+}

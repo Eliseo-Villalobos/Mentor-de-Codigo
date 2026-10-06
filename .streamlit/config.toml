@@ -1,0 +1,29 @@
+# Tema visual del Mentor de Código (estilo ChatGPT, modo claro).
+# Lo que Streamlit no deja configurar aquí está en ui.py (ESTILOS).
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#0d0d0d"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f4f4"
+textColor = "#0d0d0d"
+linkColor = "#0d0d0d"
+borderColor = "#e5e5e5"
+showWidgetBorder = true
+showSidebarBorder = false
+baseRadius = "0.75rem"
+buttonRadius = "0.6rem"
+font = "'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+headingFont = "'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+codeFont = "'Cascadia Code', Consolas, 'SF Mono', Menlo, monospace"
+codeFontSize = "0.875rem"
+codeBackgroundColor = "#f6f6f6"
+codeTextColor = "#0d0d0d"
+baseFontSize = 16
+
+[theme.sidebar]
+backgroundColor = "#f9f9f9"
+secondaryBackgroundColor = "#ececec"

@@ -1,82 +1,106 @@
 """
 Mentor de Código - Interfaz Streamlit (backend: Gemini API)
 ----------------------------------------------------------------
-Misma interfaz que app.py (Ollama), pero conectada a Gemini.
+Misma interfaz que app.py (vive en ui.py), pero conectada a Gemini.
 """
 
 import os
+
+import httpx
 import streamlit as st
 from google import genai
-from google.genai import types
+from google.genai import errors, types
 
 from prompts import SYSTEM_PROMPT  # mismo prompt que la versión de Ollama
+from ui import Backend, ErrorAmable, ejecutar_app
 
 MODEL = "gemini-3.1-flash-lite"
 
 
-# ------------------------------------------------------------------
-# CONFIGURACIÓN DE LA PÁGINA
-# ------------------------------------------------------------------
-st.set_page_config(page_title="Mentor de Código (Gemini)", page_icon="🧭")
-st.title("🧭 Mentor de Código — Gemini")
-st.caption("Pega tu código o duda. El tutor te guiará con preguntas, no con soluciones.")
-
-
-# ------------------------------------------------------------------
-# CLIENTE Y CHAT (guardados en session_state)
-# ------------------------------------------------------------------
-# IMPORTANTE: tanto 'client' como 'chat' se guardan en st.session_state,
-# no como variables sueltas. Streamlit vuelve a correr TODO el script en
-# cada interacción; si 'client' no quedara guardado en session_state,
-# se recrearía (o se perdería la referencia) en cada recarga y podríamos
-# toparnos con el mismo bug de "client has been closed" que vimos en la
-# consola, además de perder la memoria de la conversación.
-if "gemini_client" not in st.session_state:
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        st.error(
-            "No se encontró la variable de entorno GEMINI_API_KEY. "
-            "Configúrala con 'setx' en PowerShell y reinicia."
+def revisar():
+    if not os.environ.get("GEMINI_API_KEY"):
+        return ErrorAmable(
+            "Falta la API key de Gemini",
+            "Esta versión del Mentor necesita la variable de entorno `GEMINI_API_KEY`.",
+            pasos=[
+                ("En PowerShell guarda tu llave (cambia `tu-api-key` por la tuya):",
+                 'setx GEMINI_API_KEY "tu-api-key"'),
+                "Cierra y vuelve a abrir PowerShell.",
+                ("Abre otra vez el Mentor:", "streamlit run appGemini.py"),
+            ],
+            bloquea=True,
         )
-        st.stop()  # detiene la ejecución de la app aquí si no hay API key
+    return None
 
-    st.session_state.gemini_client = genai.Client(api_key=api_key)
 
-if "chat" not in st.session_state:
-    st.session_state.chat = st.session_state.gemini_client.chats.create(
-        model=MODEL,
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT
+def _cliente():
+    # IMPORTANTE: el 'client' se guarda en st.session_state, no como variable
+    # suelta. Streamlit vuelve a correr TODO el script en cada interacción; si
+    # no quedara guardado, se recrearía (o se perdería la referencia) y
+    # podríamos toparnos con el bug de "client has been closed" que vimos
+    # en la consola.
+    if "gemini_client" not in st.session_state:
+        st.session_state.gemini_client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    return st.session_state.gemini_client
+
+
+def responder(mensajes):
+    """
+    A diferencia de la versión anterior (que usaba el objeto 'chat' de Gemini),
+    aquí mandamos el historial completo en cada llamada, igual que con Ollama.
+    Así "Nueva conversación" y "Reintentar" funcionan igual en ambas versiones.
+    Gemini llama "model" a lo que nosotros llamamos "assistant".
+    """
+    contenido = [
+        types.Content(
+            role="user" if m["role"] == "user" else "model",
+            parts=[types.Part(text=m["content"])],
         )
+        for m in mensajes
+    ]
+    try:
+        for pedazo in _cliente().models.generate_content_stream(
+            model=MODEL,
+            contents=contenido,
+            config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT),
+        ):
+            if pedazo.text:
+                yield pedazo.text
+    except errors.APIError as e:
+        if e.code == 429:
+            raise ErrorAmable(
+                "Se acabó la cuota gratuita por ahora",
+                "Gemini limita cuántas preguntas se pueden hacer por minuto y por día.",
+                pasos=["Espera un minuto y presiona Reintentar."],
+                detalle=str(e),
+            )
+        if e.code in (400, 401, 403) and "API key" in str(e):
+            raise ErrorAmable(
+                "La API key de Gemini no es válida",
+                "Revisa que `GEMINI_API_KEY` tenga la llave correcta y completa.",
+                pasos=["Corrige la llave con `setx`.", "Reinicia PowerShell y la app."],
+                detalle=str(e),
+            )
+        raise ErrorAmable(
+            "Gemini regresó un error",
+            "Intenta de nuevo en un momento.",
+            detalle=str(e),
+        )
+    except (httpx.TransportError, OSError) as e:  # sin internet, DNS, etc.
+        raise ErrorAmable(
+            "No hay conexión con Gemini",
+            "Esta versión necesita internet. Revisa tu conexión.",
+            pasos=["Revisa tu conexión a internet.", "Presiona Reintentar."],
+            detalle=str(e),
+        )
+
+
+ejecutar_app(
+    Backend(
+        nombre="Gemini · nube",
+        modelo=MODEL,
+        responder=responder,
+        revisar=revisar,
+        nota_espera="Esperando la respuesta de Gemini…",
     )
-
-
-# ------------------------------------------------------------------
-# MOSTRAR EL HISTORIAL YA EXISTENTE
-# ------------------------------------------------------------------
-# A diferencia de la versión de Ollama (donde armábamos nuestra propia
-# lista 'historial'), aquí le preguntamos directamente al objeto 'chat'
-# por su historial con get_history() — Gemini ya lo trae guardado.
-for mensaje in st.session_state.chat.get_history():
-    rol = "user" if mensaje.role == "user" else "assistant"
-    texto = mensaje.parts[0].text
-    with st.chat_message(rol):
-        st.markdown(texto)
-
-
-# ------------------------------------------------------------------
-# ENTRADA DEL ALUMNO
-# ------------------------------------------------------------------
-pregunta = st.chat_input("Escribe tu código o tu duda aquí...")
-
-if pregunta:
-    with st.chat_message("user"):
-        st.markdown(pregunta)
-
-    with st.chat_message("assistant"):
-        with st.spinner("El tutor está pensando..."):
-            respuesta = st.session_state.chat.send_message(pregunta)
-        st.markdown(respuesta.text)
-
-    # No hace falta guardar nada manualmente aquí: chat.send_message()
-    # ya actualizó el historial interno del objeto 'chat' por su cuenta.
+)

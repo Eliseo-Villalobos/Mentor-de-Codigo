@@ -38,7 +38,7 @@ Escribe algo, confirma que responde, y sal con `/bye`.
 
 ## Paso 3: Preparar la carpeta del proyecto
 
-1. Clona o descarga la carpeta del proyecto (con `mentor.py` y `app.py`) o crea una carpeta nueva y copia ahí esos dos archivos.
+1. Clona o descarga la carpeta completa del proyecto. La interfaz necesita juntos: `app.py`, `appGemini.py`, `ui.py` (la interfaz compartida), `prompts.py` y la carpeta `.streamlit/` (el tema visual).
 
 2. Dentro de la carpeta, crea un entorno virtual de Python (esto evita conflictos con otras librerías que ya tengas instaladas):
    ```powershell
@@ -58,7 +58,7 @@ Escribe algo, confirma que responde, y sal con `/bye`.
 
 4. Con el entorno activado, instala las librerías necesarias:
    ```powershell
-   pip install requests streamlit
+   pip install requests streamlit google-genai
    ```
 
 ## Paso 4: Probar el prototipo de consola (opcional)
